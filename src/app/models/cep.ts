@@ -10,7 +10,7 @@ export class Cep {
     ibge: string;
     gia: string;
 
-    cityAndUfGet() {
+    get cityAndUfGet() {
       return this.localidade + ' - ' + this.uf;
     }
 }

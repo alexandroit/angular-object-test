@@ -9,13 +9,13 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./cep.component.css']
 })
 export class CepComponent implements OnInit {
-    cep: Cep;
+    cep: Cep ;
   constructor(private cepService: CepService) { }
 
   ngOnInit() {
     this.cepService.cepGet().subscribe( (cep: Cep) => {
       this.cep = cep;
-      console.log('cityAndUfGet', this.cep.cityAndUfGet());
+      // console.log('cityAndUfGet', this.cep.cityAndUfGet());
     });
   }
 
