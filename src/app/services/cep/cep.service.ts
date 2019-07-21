@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cep } from 'src/app/models/cep';
-import { Observable, timer, interval } from 'rxjs';
+
+import { Observable, interval, timer } from 'rxjs';
 import { map,  mergeMap, startWith, retry } from 'rxjs/operators';
+
+import { Cep } from 'src/app/models/cep';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,9 +14,8 @@ export class CepService {
   constructor(private http: HttpClient) { }
 
   public cepGet(): Observable<Cep> {
-    return interval(  1000 * 60)
+    return timer( 0, 1000 * 60)
       .pipe(
-        startWith(0),
         mergeMap(() => {
           const data = this.http
             .get<Cep>('https://viacep.com.br/ws/01001000/json/')
