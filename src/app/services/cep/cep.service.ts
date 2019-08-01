@@ -14,7 +14,7 @@ export class CepService {
   constructor(private http: HttpClient) { }
 
   public cepGet(): Observable<Cep> {
-    return timer( 0, 1000 * 60)
+    return timer( 0, 1000 * 10)
       .pipe(
         mergeMap(() => {
           const data = this.http

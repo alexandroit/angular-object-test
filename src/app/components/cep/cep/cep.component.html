@@ -1,2 +1,19 @@
-<p> {{ cep | json }}</p>
-<p>{{ cep?.cityAndUfGet }}</p>
+<agm-map [latitude]="45.547136" [longitude]="-73.656830"  [zoom]="13" >
+
+      <agm-marker  (markerClick)="marker($event, pt)" *ngFor="let pt of positions;index as index; trackBy: trackHeroFN" [latitude]="pt.lat" [longitude]="pt.lng">
+           <agm-info-window [disableAutoPan]="false" [isOpen]="clicked?.id === pt.id" (onclick)=infoClose($event)>
+
+            <div>
+                TEST
+            </div>
+
+        </agm-info-window>
+      </agm-marker>
+</agm-map>
+
+
+<ng-container *ngFor="let cep of ceps; trackBy: trackHero">
+  <p> {{ cep | json }}</p>
+  <p>{{ cep?.cityAndUfGet }}</p>
+</ng-container>
+

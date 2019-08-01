@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CepModule } from './components/cep/cep.module';
 
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +13,10 @@ import { CepModule } from './components/cep/cep.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CepModule
+    CepModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
